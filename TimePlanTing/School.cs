@@ -38,26 +38,15 @@ namespace TimePlanTing
                 foreach (var c in Classes)
                 {
                     if(c.ClassName != splitCommand[2]) continue;
-                    Console.WriteLine($"Lærer: {c.Teacher.Name}");
-                    Console.Write($"Elever: \n");
-                    foreach (var p in c.ClassList)
-                    {
-                        Console.WriteLine(p.Name);
-                    }
+                    c.PrintInfo();
                 }
             }
 
             if (splitCommand[0].Contains("vis") && splitCommand[1].Contains("fag"))
             {
-                foreach (var c in Courses)
+                foreach (var c in Courses.Where(c => c.ClassName == splitCommand[2]))
                 {
-                    if(c.CourseName != splitCommand[2]) continue;
-                    Console.WriteLine($"Lærer: {c.CourseTeacher.Name}");
-                    Console.Write($"Elever: \n");
-                    foreach (var p in c.StudentList)
-                    {
-                        Console.WriteLine(p.Name);
-                    }
+                    c.PrintInfo();
                 }
             }
 
@@ -66,10 +55,9 @@ namespace TimePlanTing
                 foreach (var s in StudentList)
                 {
                     if(s.Name != splitCommand[1] + " " + splitCommand[2]) continue;
-                    foreach (var course in Courses)
+                    foreach (var c in Courses.Where(c => c.ClassName == splitCommand[3]))
                     {
-                        if(course.CourseName != splitCommand[3]) continue;
-                        course.AddStudentToCourse(s);
+                        c.AddStudentToClass(s);
                     }
                 }
             }

@@ -19,9 +19,19 @@ namespace TimePlanTing
             ClassName = cName;
         }
 
-        public void AddStudentToclass(Student p)
+        public void AddStudentToClass(Student p)
         {
             ClassList.Add(p);
+        }
+
+        public void PrintInfo()
+        {
+            Console.WriteLine($"Lærer: {Teacher.Name}");
+            Console.Write($"Elever: \n");
+            foreach (var p in ClassList)
+            {
+                Console.WriteLine(p.Name);
+            }
         }
     }
 }
