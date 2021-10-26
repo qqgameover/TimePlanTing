@@ -15,24 +15,20 @@ namespace TimePlanTing
                 teacher1,
                 teacher2,
             };
-            var studentListA1 = new List<Student>
-            {
-                new ("Kasper L"),
-                new ("Ola Jens"),
-                new ("Ragnar J"),
-                new ("JegKlarerIkkeFinnePaaNavn"),
-            };
-            var studentListB1 = new List<Student>
-            {
-                new ("Repsak L"),
-                new ("Jens Ole"),
-                new ("Just Jacobsen"),
-                new ("Mari M"),
-            };
             var classList = new List<SchoolClass>
             {
-                new ("1A", teacher1, studentListA1),
-                new ("1B", teacher2, studentListB1)
+                new ("1A", teacher1, new List<Student>{
+                    new ("Kasper L"),
+                    new ("Ola Jens"),
+                    new ("Ragnar J"),
+                    new ("JegKlarerIkkeFinnePaaNavn"),
+                }),
+                new ("1B", teacher2, new List<Student>{
+                    new ("Repsak L"),
+                    new ("Jens Ole"),
+                    new ("Just Jacobsen"),
+                    new ("Mari M"),
+                })
             };
             var courseList = new List<Course>
             {
@@ -42,6 +38,7 @@ namespace TimePlanTing
                 new Course("Gym", teacher2)
             };
             var school = new School(classList, courseList, teacherList);
+            Console.WriteLine("Skriv vis k/f => navn");
             while (true)
             {
                 var c = Console.ReadLine();
