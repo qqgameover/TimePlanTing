@@ -33,7 +33,7 @@ namespace TimePlanTing
         public void HandleCommand(string command)
         {
             var splitCommand = command.Split(" ");
-            if (splitCommand[0].Contains("vis") && splitCommand[1].Contains("klasse"))
+            if (splitCommand[0].Contains("vis") && splitCommand[1].Contains("k"))
             {
                 foreach (var c in Classes)
                 {
@@ -42,7 +42,7 @@ namespace TimePlanTing
                 }
             }
 
-            if (splitCommand[0].Contains("vis") && splitCommand[1].Contains("fag"))
+            if (splitCommand[0].Contains("vis") && splitCommand[1].Contains("f"))
             {
                 foreach (var c in Courses.Where(c => c.ClassName == splitCommand[2]))
                 {
