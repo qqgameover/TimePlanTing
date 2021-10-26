@@ -12,7 +12,8 @@ namespace TimePlanTing
         public List<Student> StudentList { get; private set; }
         public List<Course> Courses { get; private set; }
         public List<Teacher> Teachers { get; private set; }
-
+        public Date[,] Timetable { get; set; }
+        //mandag 1-5, tirsdag 1-5 onsdag 1-5.
         public School(List<SchoolClass> classes, List<Course> courses, List<Teacher> teachers)
         {
             Classes = classes;
@@ -20,6 +21,7 @@ namespace TimePlanTing
             Courses = courses;
             Teachers = teachers;
             AddStudentsToList();
+            Timetable = new Date[5, 5];
         }
 
         private void AddStudentsToList()

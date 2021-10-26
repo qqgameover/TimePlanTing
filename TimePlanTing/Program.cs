@@ -36,7 +36,8 @@ namespace TimePlanTing
                 new Course("Engelsk", teacher1),
                 new Course("Ny norsk", teacher2),
                 new Course("Gym", teacher2)
-            };
+            }; 
+            AddDummyData(courseList, classList);
             var school = new School(classList, courseList, teacherList);
             Console.WriteLine("Skriv vis k/f => navn");
             while (true)
@@ -45,6 +46,21 @@ namespace TimePlanTing
                 if (c == "") break;
                 school.HandleCommand(c);
             }
+        }
+
+        private static void AddDummyData(List<Course> courseList, List<SchoolClass> classList)
+        {
+            courseList[0].AddStudentToClass(classList[0].ClassList[0]);
+            courseList[1].AddStudentToClass(classList[0].ClassList[0]);
+            courseList[3].AddStudentToClass(classList[0].ClassList[0]);
+
+            courseList[0].AddStudentToClass(classList[1].ClassList[0]);
+            courseList[1].AddStudentToClass(classList[1].ClassList[0]);
+            courseList[3].AddStudentToClass(classList[1].ClassList[0]);
+
+            courseList[0].AddStudentToClass(classList[1].ClassList[1]);
+            courseList[1].AddStudentToClass(classList[1].ClassList[1]);
+            courseList[3].AddStudentToClass(classList[1].ClassList[1]);
         }
     }
 }
