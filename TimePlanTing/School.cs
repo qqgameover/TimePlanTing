@@ -14,6 +14,8 @@ namespace TimePlanTing
         public List<Teacher> Teachers { get; private set; }
         public Date[,] Timetable { get; set; }
         //mandag 1-5, tirsdag 1-5 onsdag 1-5.
+        public string[] DayArray { get; private set; }
+        public int[] TimeArray { get; private set; }
         public School(List<SchoolClass> classes, List<Course> courses, List<Teacher> teachers)
         {
             Classes = classes;
@@ -22,6 +24,19 @@ namespace TimePlanTing
             Teachers = teachers;
             AddStudentsToList();
             Timetable = new Date[5, 5];
+            DayArray = new []{"Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag"};
+            TimeArray = new[] {0830, 1000, 1215, 1300, 1400};
+        }
+
+        public void FillTimeTable()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Timetable[i, j] = new Date(TimeArray[j], DayArray[i]);
+                }
+            }
         }
 
         private void AddStudentsToList()
