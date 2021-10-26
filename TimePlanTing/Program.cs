@@ -32,14 +32,15 @@ namespace TimePlanTing
             };
             var courseList = new List<Course>
             {
-                new Course("Matte", teacher1),
-                new Course("Engelsk", teacher1),
-                new Course("Ny norsk", teacher2),
-                new Course("Gym", teacher2)
+                new ("Matte", teacher1),
+                new ("Engelsk", teacher1),
+                new ("Ny norsk", teacher2),
+                new ("Gym", teacher2)
             }; 
             AddDummyData(courseList, classList);
             var school = new School(classList, courseList, teacherList);
-            Console.WriteLine("Skriv vis k/f => navn");
+            Console.WriteLine("Skriv vis k/f => navn for å se en klasse eller et fag.");
+            Console.WriteLine("Skriv p => navn => fag for å melde noen på et fag.");
             while (true)
             {
                 var c = Console.ReadLine();
